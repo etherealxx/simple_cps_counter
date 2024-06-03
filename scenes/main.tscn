@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://jfhwmm0eorwb"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_8nq0w"]
+[ext_resource type="FontFile" uid="uid://bpgj6x0owr7c5" path="res://fonts/pusab/PUSAB___.otf" id="2_bcpue"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qugi8"]
+font = ExtResource("2_bcpue")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_vh10q"]
+font = ExtResource("2_bcpue")
+font_size = 50
+
+[node name="Main" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.72549, 0, 1)
+script = ExtResource("1_8nq0w")
+
+[node name="LayoutCont" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="LayoutCont"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="TextCont" type="VBoxContainer" parent="LayoutCont"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="LayoutCont/TextCont"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Cps" type="Label" parent="LayoutCont/TextCont"]
+layout_mode = 2
+text = "0 cps"
+label_settings = SubResource("LabelSettings_qugi8")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="LayoutCont/TextCont"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Clicks" type="Label" parent="LayoutCont/TextCont"]
+layout_mode = 2
+text = "0 clicks"
+label_settings = SubResource("LabelSettings_vh10q")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="LayoutCont/TextCont"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
