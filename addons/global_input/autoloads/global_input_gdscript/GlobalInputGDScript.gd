@@ -63,7 +63,7 @@ enum MapVirtualKeyTypes {
 #-----------------------------------------------------------
 @onready var global_input_csharp_packed_scene = preload("res://addons/global_input/autoloads/global_input_csharp/GlobalInputCSharp.tscn")
 var global_input_csharp; # to get this in C# use GetNode("/root/GlobalInput") 
-						 # or if you want the C# version of this node GetNode("/root/GlobalInput/GlobalInputCSharp")
+# or if you want the C# version of this node GetNode("/root/GlobalInput/GlobalInputCSharp")
 
 # godot keycode to window keycodes
 var godot_key_to_window_key: Dictionary

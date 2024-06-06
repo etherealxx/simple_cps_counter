@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yaeu34ihpdea"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://cjrd1a3xmptt5"
+path="res://.godot/imported/spinning_circle.svg-67d240527962653382b32620e10b47a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/spinning_circle.svg"
+dest_files=["res://.godot/imported/spinning_circle.svg-67d240527962653382b32620e10b47a4.ctex"]
 
 [params]
 

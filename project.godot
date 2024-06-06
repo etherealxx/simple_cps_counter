@@ -23,16 +23,22 @@ GlobalInput="*res://addons/global_input/autoloads/global_input_gdscript/GlobalIn
 [display]
 
 window/size/viewport_width=350
-window/size/viewport_height=125
+window/size/viewport_height=100
+window/size/borderless=true
 window/subwindows/embed_subwindows=false
 
 [dotnet]
 
-project/assembly_name="hold_release_cps_counter"
+project/assembly_name="simple_cps_counter"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/global_input/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
 
 [input]
 
@@ -68,6 +74,7 @@ minimize={
 
 [physics]
 
+2d/run_on_separate_thread=true
 common/physics_ticks_per_second=240
 common/max_physics_steps_per_frame=32
 

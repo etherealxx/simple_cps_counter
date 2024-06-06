@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jfhwmm0eorwb"]
+[gd_scene load_steps=7 format=3 uid="uid://jfhwmm0eorwb"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_8nq0w"]
 [ext_resource type="FontFile" uid="uid://bpgj6x0owr7c5" path="res://fonts/pusab/PUSAB___.otf" id="2_bcpue"]
+[ext_resource type="Script" path="res://scripts/SpinnerRect.gd" id="3_3c5pm"]
+[ext_resource type="Texture2D" uid="uid://cjrd1a3xmptt5" path="res://assets/spinning_circle.svg" id="3_lm6km"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qugi8"]
 font = ExtResource("2_bcpue")
@@ -56,3 +58,40 @@ label_settings = SubResource("LabelSettings_vh10q")
 [node name="ReferenceRect3" type="ReferenceRect" parent="LayoutCont/TextCont"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
+
+[node name="SpinnerRect" type="ReferenceRect" parent="LayoutCont"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_3c5pm")
+
+[node name="QuarterCircleSprite2D" type="Sprite2D" parent="LayoutCont/SpinnerRect"]
+position = Vector2(33, 32)
+texture = ExtResource("3_lm6km")
+centered = false
+offset = Vector2(-25, -25)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="LayoutCont/SpinnerRect"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 0
+
+[node name="QuarterCircleTextureRect" type="TextureRect" parent="LayoutCont/SpinnerRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -15.5
+offset_right = -33.0
+offset_bottom = 9.5
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("3_lm6km")
+
+[node name="SpinTimer" type="Timer" parent="LayoutCont/SpinnerRect"]
+wait_time = 0.2
+
+[connection signal="timeout" from="LayoutCont/SpinnerRect/SpinTimer" to="LayoutCont/SpinnerRect" method="_on_spin_timer_timeout"]

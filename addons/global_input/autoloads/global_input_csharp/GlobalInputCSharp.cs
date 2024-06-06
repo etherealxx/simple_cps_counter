@@ -274,7 +274,7 @@ public partial class GlobalInputCSharp : Node
 				{Key.F10.ToString(), 0x79},
 				{Key.F11.ToString(), 0x7A},
 				{Key.F12.ToString(), 0x7B},
-    			{Key.F13.ToString(), 0x7C},
+				{Key.F13.ToString(), 0x7C},
 				{Key.F14.ToString(), 0x7D},
 				{Key.F15.ToString(), 0x7E},
 				{Key.F16.ToString(), 0x7F},
@@ -310,8 +310,8 @@ public partial class GlobalInputCSharp : Node
 	#region General Mouse and Keyboard Functions
 		// GetMousePointPosition function returns the current position of the mouse as a MousePoint object.
 		private MousePoint GetMousePointPosition() {
-        var gotPoint = GetCursorPos(out MousePoint currentMousePoint);
-        if (!gotPoint) {
+		var gotPoint = GetCursorPos(out MousePoint currentMousePoint);
+		if (!gotPoint) {
 				currentMousePoint = new MousePoint(0, 0);
 			}
 			return currentMousePoint;
@@ -451,10 +451,10 @@ public partial class GlobalInputCSharp : Node
 		}
 	}
 
-    public override void _Ready()
-    {
-        InitializeActionDictionary();
-    }
+	public override void _Ready()
+	{
+		InitializeActionDictionary();
+	}
 
 	/// <summary>
 	/// Checks if the specified action has just been pressed.
@@ -463,13 +463,13 @@ public partial class GlobalInputCSharp : Node
 	/// <returns>True if the action has just been pressed, false otherwise.</returns>
 	public bool IsActionJustPressed(StringName action) {
 		string stateString = "justPressedState";
-        string prevStateString = "justPressedPrevState";
-        UpdateAction(action, stateString, prevStateString);
-        Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
-        bool prevState = overallEventStateDictionary[prevStateString];
-        bool state = overallEventStateDictionary[stateString];
-        if (!prevState && state) return true;
-        return false;
+		string prevStateString = "justPressedPrevState";
+		UpdateAction(action, stateString, prevStateString);
+		Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
+		bool prevState = overallEventStateDictionary[prevStateString];
+		bool state = overallEventStateDictionary[stateString];
+		if (!prevState && state) return true;
+		return false;
 	}
 
 	/// <summary>
@@ -479,13 +479,13 @@ public partial class GlobalInputCSharp : Node
 	/// <returns>True if the action is currently pressed, false otherwise.</returns>
 	public bool IsActionPressed(StringName action) {
 		string stateString = "pressedState";
-        string prevStateString = "pressedPrevState";
-        UpdateAction(action, stateString, prevStateString);
-        Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
-        bool prevState = overallEventStateDictionary[prevStateString];
-        bool state = overallEventStateDictionary[stateString];
-        if (prevState && state) return true;
-        return false;
+		string prevStateString = "pressedPrevState";
+		UpdateAction(action, stateString, prevStateString);
+		Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
+		bool prevState = overallEventStateDictionary[prevStateString];
+		bool state = overallEventStateDictionary[stateString];
+		if (prevState && state) return true;
+		return false;
 	}
 
 	/// <summary>
@@ -495,13 +495,13 @@ public partial class GlobalInputCSharp : Node
 	/// <returns>True if the action has just been released, otherwise returns false.</returns>
 	public bool IsActionJustReleased(StringName action) {
 		string stateString = "justReleasedState";
-        string prevStateString = "justReleasedPrevState";
-        UpdateAction(action, stateString, prevStateString);
-        Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
-        bool prevState = overallEventStateDictionary[prevStateString];
-        bool state = overallEventStateDictionary[stateString];
-        if (prevState && !state) return true;
-        return false;
+		string prevStateString = "justReleasedPrevState";
+		UpdateAction(action, stateString, prevStateString);
+		Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[action])[OverallEventStateName];
+		bool prevState = overallEventStateDictionary[prevStateString];
+		bool state = overallEventStateDictionary[stateString];
+		if (prevState && !state) return true;
+		return false;
 	}
 
 	/// <summary>
@@ -532,12 +532,12 @@ public partial class GlobalInputCSharp : Node
 	/// <param name="positiveY"></param>
 	/// <returns></returns>
 	public Vector2 GetVector(StringName negativeX, StringName positiveX, StringName negativeY, StringName positiveY){
-        Vector2 inputVector = new Vector2
-        {
-            X = (IsActionPressed(positiveX) ? 1 : 0) - (IsActionPressed(negativeX) ? 1 : 0),
-            Y = (IsActionPressed(positiveY) ? 1 : 0) - (IsActionPressed(negativeY) ? 1 : 0)
-        };
-        return inputVector;
+		Vector2 inputVector = new Vector2
+		{
+			X = (IsActionPressed(positiveX) ? 1 : 0) - (IsActionPressed(negativeX) ? 1 : 0),
+			Y = (IsActionPressed(positiveY) ? 1 : 0) - (IsActionPressed(negativeY) ? 1 : 0)
+		};
+		return inputVector;
 	}
 
 	/// <summary>
@@ -586,19 +586,19 @@ public partial class GlobalInputCSharp : Node
 	}
 
 	private void UpdateOverallEventDictionary(string actionName)
-    {
-        Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[actionName])[OverallEventStateName];
+	{
+		Dictionary<string, bool> overallEventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[actionName])[OverallEventStateName];
 
-        bool justPressedPrevState = false;
-        bool justPressedState = false;
-        bool pressedPrevState = false;
-        bool pressedState = false;
-        bool justReleasedPrevState = false;
-        bool justReleasedState = false;
+		bool justPressedPrevState = false;
+		bool justPressedState = false;
+		bool pressedPrevState = false;
+		bool pressedState = false;
+		bool justReleasedPrevState = false;
+		bool justReleasedState = false;
 
-        foreach (InputEvent e in InputMap.ActionGetEvents(actionName))
-        {
-            string eventType = null;
+		foreach (InputEvent e in InputMap.ActionGetEvents(actionName))
+		{
+			string eventType = null;
 			string eventString = null;
 			KeyModifierMask? eventModifierMask = null; 
 
@@ -616,22 +616,22 @@ public partial class GlobalInputCSharp : Node
 			}
 			if (eventType == null) continue; // exits if event is neither a mouse button nor a key
 
-            Dictionary<string, bool> eventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[actionName])[eventString];
-            if (eventStateDictionary["justPressedPrevState"]) justPressedPrevState = true;
-            if (eventStateDictionary["justPressedState"]) justPressedState = true;
-            if (eventStateDictionary["pressedPrevState"]) pressedPrevState = true;
-            if (eventStateDictionary["pressedState"]) pressedState = true;
-            if (eventStateDictionary["justReleasedPrevState"]) justReleasedPrevState = true;
-            if (eventStateDictionary["justReleasedState"]) justReleasedState = true;
-        }
+			Dictionary<string, bool> eventStateDictionary = (Dictionary<string, bool>)((Dictionary)ActionDictionary[actionName])[eventString];
+			if (eventStateDictionary["justPressedPrevState"]) justPressedPrevState = true;
+			if (eventStateDictionary["justPressedState"]) justPressedState = true;
+			if (eventStateDictionary["pressedPrevState"]) pressedPrevState = true;
+			if (eventStateDictionary["pressedState"]) pressedState = true;
+			if (eventStateDictionary["justReleasedPrevState"]) justReleasedPrevState = true;
+			if (eventStateDictionary["justReleasedState"]) justReleasedState = true;
+		}
 
-        overallEventStateDictionary["justPressedPrevState"] = justPressedPrevState;
-        overallEventStateDictionary["justPressedState"] = justPressedState;
-        overallEventStateDictionary["pressedPrevState"] = pressedPrevState;
-        overallEventStateDictionary["pressedState"] = pressedState;
-        overallEventStateDictionary["justReleasedPrevState"] = justReleasedPrevState;
-        overallEventStateDictionary["justReleasedState"] = justReleasedState;
-    }
+		overallEventStateDictionary["justPressedPrevState"] = justPressedPrevState;
+		overallEventStateDictionary["justPressedState"] = justPressedState;
+		overallEventStateDictionary["pressedPrevState"] = pressedPrevState;
+		overallEventStateDictionary["pressedState"] = pressedState;
+		overallEventStateDictionary["justReleasedPrevState"] = justReleasedPrevState;
+		overallEventStateDictionary["justReleasedState"] = justReleasedState;
+	}
 
 	/// <summary>
 	/// A method to check if the event modifier key is pressed, and return the state of the event modifier.

@@ -12,7 +12,7 @@ var cps_count := 0
 
 func _ready():
 	root_window = get_tree().get_root()
-	root_window.set_flag(Window.FLAG_BORDERLESS, true)
+	#root_window.set_flag(Window.FLAG_BORDERLESS, true)
 	
 	#if OS.has_feature("template"): # if exported
 		#var res_dir = OS.get_executable_path().get_base_dir()
@@ -46,7 +46,7 @@ func _physics_process(_delta):
 		clicktext.get_label_settings().set_font_color(Color("ffffff"))
 
 func _input(_event):
-	if Input.is_action_just_pressed("quit"):
+	if Input.is_action_just_pressed("quit"): 
 		get_tree().quit()
 	elif Input.is_action_just_pressed("reset"):
 		clicks = 0
